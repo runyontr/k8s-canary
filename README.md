@@ -101,7 +101,7 @@ As a baseline, we assume there is a Kubernetes deployment named appinfo that was
 `deployment/appinfo.yaml` file.  This deployment can be created via
 
 ```
-kubectl create -f deployment/appinfo.yaml
+kubectl create -f https://raw.githubusercontent.com/runyontr/k8s-canary/master/deployment/appinfo.yaml
 ```
 
 The deployment is very basic except for two additional configuration.  First is  [Exposing Pod Information through 
@@ -215,7 +215,7 @@ The service defined in `deployment/appinfo-service.yaml` has the label selector 
 a load balancer (service) that routes requests to pods with the label `app=appinfo`. 
 
 ```
-kubectl create -f deployment/appinfo-service.yaml
+kubectl create -f https://raw.githubusercontent.com/runyontr/k8s-canary/master/deployment/appinfo-service.yaml
 ```
 
 and see it
@@ -329,7 +329,7 @@ Now we are ready to deploy our broken canary deployment:
 
 
 ```
-kubectl create -f deployment/canary-broken.yaml 
+kubectl create -f https://raw.githubusercontent.com/runyontr/k8s-canary/master/deployment/canary-broken.yaml 
 deployment "appinfo-canary-broken" created
 ```
 
@@ -366,7 +366,7 @@ For this demo, the while loop will be used to demonstrate the health of the syst
   
 
 ```
-kubectl delete -f deployment/canary-broken.yaml
+kubectl delete -f https://raw.githubusercontent.com/runyontr/k8s-canary/master/deployment/canary-broken.yaml
 ```
 
 At this point, the broken pod should be terminating:
@@ -394,7 +394,7 @@ After figuring out the issue, a new fix has been created and is ready to be roll
 process, a new canary deployment is created:
 
 ```
-kubectl create -f deployment/canary-fixed.yaml 
+kubectl create -f https://raw.githubusercontent.com/runyontr/k8s-canary/master/deployment/canary-fixed.yaml 
 deployment "appinfo-canary-fixed" created
 ```
 
@@ -434,7 +434,7 @@ should should show labels `release=stable` having the namespace value correctly 
 Finally, we need to clean up the canary app.
 
 ```
-kubectl delete -f deployment/canary-fixed.yaml
+kubectl delete -f https://raw.githubusercontent.com/runyontr/k8s-canary/master/deployment/canary-fixed.yaml
 ```
 
 Now all pods running behind the service are updated.
