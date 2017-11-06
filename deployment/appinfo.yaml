@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: appinfo
   labels:
-    releaes: stable
+    release: stable
     app:  appinfo
 spec:
   replicas: 1

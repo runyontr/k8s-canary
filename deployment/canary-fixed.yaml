@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: appinfo-canary-fixed
   labels:
-    releaes: canary
+    release: canary
     app:  appinfo
 spec:
   replicas: 1
